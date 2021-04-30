@@ -65,7 +65,6 @@ exports.getUserWithId = getUserWithId;
  * @return {Promise<{}>} A promise to the user.
  */
 const addUser = function (user) {
-  
   pool
   .query(`
   INSERT INTO users (
@@ -76,9 +75,9 @@ const addUser = function (user) {
       $1,
       $2,
       $3)
-      RETURNING *`,[user.name, user.email, "password"])
+      RETURNING *`,[user.name, user.email, user.password])
   .then((result) => {
-    return Promise.resolve({...result});
+    return Promise.resolve(user);
   })
   .catch((err) => {
     console.log(err.message);
@@ -93,8 +92,15 @@ exports.addUser = addUser;
  * @param {string} guest_id The id of the user.
  * @return {Promise<[{}]>} A promise to the reservations.
  */
-const getAllReservations = function (guest_id, limit = 10) {
-  return getAllProperties(null, 2);
+const getAllReservations = (guest_id, limit = 10) => {
+  return pool
+    .query(`SELECT * FROM properties where guest.id = $1 LIMIT $2`, [guest_id, limit])
+    .then((result) => {
+      return Promise.resolve(result);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 exports.getAllReservations = getAllReservations;
 
@@ -110,7 +116,7 @@ const getAllProperties = (options, limit = 10) => {
   return pool
     .query(`SELECT * FROM properties LIMIT $1`, [limit])
     .then((result) => {
-      console.log(result.rows);
+      return Promise.resolve(properties);
     })
     .catch((err) => {
       console.log(err.message);
