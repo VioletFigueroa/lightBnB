@@ -13,11 +13,13 @@
 **Result snapshot:** Full-stack property rental application with PostgreSQL database, parameterized queries, and database security practices.
 
 **Quick review:**
+
 - **Security focus:** SQL injection prevention via parameterized queries, database access control, secure connection pooling
 - **Key files:** `server/database.js` (parameterized queries), `/1_queries/` (SQL examples), `/migrations/` (schema)
 - **Start with:** Review parameterized queries in `database.js` and SQL injection protection patterns
 
 ## Overview
+
 LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that allows users to browse properties, make reservations, and manage listings. This project demonstrates critical database security practices, particularly SQL injection prevention through parameterized queries and proper database access patterns.
 
 **Developed during:** Lighthouse Labs Web Development Bootcamp (April 2021)
@@ -25,6 +27,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 ## Security Relevance for Application Security
 
 ### SQL Injection Prevention
+
 - **Parameterized queries** using PostgreSQL placeholders (`$1`, `$2`, etc.)
 - **No string concatenation** in SQL - all user input passed as parameters
 - **Prepared statement pattern** prevents malicious SQL in user input
@@ -32,6 +35,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 - Demonstrates understanding of #3 OWASP Top 10 vulnerability (Injection)
 
 ### Database Security Architecture
+
 - **Connection pooling** with pg.Pool for secure, efficient database connections
 - **Credential management** using environment-based configuration
 - **Least privilege principle** - database user has only necessary permissions
@@ -39,6 +43,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 - **Transaction management** for data integrity and consistency
 
 ### Secure Query Patterns
+
 - **Dynamic filtering with safe parameters** for search functionality
 - **Complex queries** built securely using parameterized WHERE clauses
 - **JOIN operations** that maintain security while querying multiple tables
@@ -46,6 +51,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 - **RETURNING clause** for secure data retrieval after INSERT/UPDATE
 
 ### Data Access Layer Design
+
 - **Abstraction layer** separates business logic from SQL
 - **Promise-based async patterns** prevent race conditions
 - **Modular query functions** facilitate security code review
@@ -53,12 +59,14 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 - **Clear function contracts** with JSDoc comments aid security analysis
 
 ### Authentication & Authorization at Database Level
+
 - **User lookup by email** uses parameterized queries
 - **Password storage** (hashed values only in database)
 - **User-specific reservation queries** enforce data ownership
 - **Guest_id filtering** ensures users only see their own data
 
 ## Objectives
+
 - Build secure database-backed web application
 - Implement SQL injection prevention techniques
 - Design relational database schema with security in mind
@@ -66,6 +74,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 - Demonstrate secure data access patterns
 
 ## Methodology
+
 - **PostgreSQL** for robust, secure relational database
 - **pg (node-postgres)** for parameterized query support
 - **Database migrations** for version-controlled schema changes
@@ -73,6 +82,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 - **Connection pooling** for performance and security
 
 ## Key Features
+
 - **Property Search:** Filter by city, price range, and rating
 - **User Authentication:** Login and registration with database-backed users
 - **Reservations:** Create and view property bookings
@@ -81,6 +91,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 - **Complex Queries:** Multi-table JOINs with aggregate functions
 
 ## Technologies Used
+
 - **Backend:** Node.js, Express.js
 - **Database:** PostgreSQL 9.6+
 - **Database Driver:** pg (node-postgres) with connection pooling
@@ -91,12 +102,14 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 ## Database Architecture
 
 ### Tables
+
 - **users:** User accounts with hashed passwords
 - **properties:** Property listings with location and amenity data
 - **reservations:** Booking records linking users and properties
 - **property_reviews:** User reviews with ratings
 
 ### Security Features
+
 - **Foreign key constraints** enforce referential integrity
 - **NOT NULL constraints** prevent incomplete data
 - **CHECK constraints** validate data ranges (e.g., ratings 1-5)
@@ -104,6 +117,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 - **Indexes** on frequently queried columns improve performance
 
 ## Application Security Lessons Learned
+
 - **Parameterized queries are non-negotiable:** String concatenation in SQL is a critical vulnerability
 - **Database errors leak information:** Generic error messages to users, detailed logs server-side
 - **Connection pooling impacts security:** Proper pool management prevents connection exhaustion attacks
@@ -115,6 +129,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 ## Files Included
 
 **Database:**
+
 - `migrations/01_schema.sql` - Database schema with tables, constraints, and indexes
 - `seeds/` - Sample data for development and testing
 - `1_queries/` - Example SQL queries demonstrating safe query patterns
@@ -125,6 +140,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
   - `5_all_my_reservations.sql` - User-specific data retrieval
 
 **Application:**
+
 - `LightBnB_WebApp/server/database.js` - Data access layer with parameterized queries
 - `LightBnB_WebApp/server/server.js` - Express server and API routes
 - `LightBnB_WebApp/public/` - Client-side assets
@@ -133,6 +149,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (v10.x or higher)
 - PostgreSQL (v9.6 or higher)
 - npm (v6.x or higher)
@@ -140,16 +157,19 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 ### Database Setup
 
 1. **Create database**
+
    ```bash
    createdb lightbnb
    ```
 
 2. **Run migrations**
+
    ```bash
    psql -d lightbnb < migrations/01_schema.sql
    ```
 
 3. **Load seed data**
+
    ```bash
    psql -d lightbnb < seeds/01_seeds.sql
    psql -d lightbnb < seeds/02_seeds.sql
@@ -158,12 +178,14 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 ### Application Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/VioletFigueroa/lightBnB.git
    cd lightBnB/LightBnB_WebApp
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
@@ -171,6 +193,7 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
 3. **Configure database connection**
    - Edit `server/database.js` lines 3-8
    - Update credentials (or use environment variables):
+
    ```javascript
    const pool = new Pool({
      user: process.env.DB_USER || 'your_username',
@@ -181,14 +204,17 @@ LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that all
    ```
 
 4. **Start the server**
+
    ```bash
    npm run local
    ```
+
    The application will be available at `http://localhost:3000`
 
 ## SQL Injection Protection Example
 
 ### ❌ Vulnerable Code (Never Do This)
+
 ```javascript
 // DANGEROUS - Vulnerable to SQL injection
 const getUserWithEmail = (email) => {
@@ -199,6 +225,7 @@ const getUserWithEmail = (email) => {
 ```
 
 ### ✅ Secure Code (Used in This Project)
+
 ```javascript
 // SAFE - Parameterized query prevents SQL injection
 const getUserWithEmail = (email) => {
@@ -254,6 +281,7 @@ This project demonstrates critical AppSec database security skills:
 5. **Security Testing:** Testing for SQL injection, authentication bypasses, and authorization flaws
 
 **Database security skills essential for AppSec:**
+
 - **Code Review:** Spotting SQL injection and unsafe query patterns in codebases
 - **Security Testing:** Using SQLMap and other tools to test for injection vulnerabilities
 - **Secure Architecture:** Designing database access layers with security in mind
