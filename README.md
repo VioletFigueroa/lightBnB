@@ -1,10 +1,16 @@
-# LightBnB - Airbnb Clone
+<div align="center">
 
-![GitHub last commit](https://img.shields.io/github/last-commit/VioletFigueroa/lightBnB?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/VioletFigueroa/lightBnB?style=flat-square)
-![License](https://img.shields.io/badge/license-Educational-blue?style=flat-square)
+# 🏠 LightBnB
+### _Vacation Rental Search Platform with Secure Database Queries_
+
+![GitHub last commit](https://img.shields.io/github/last-commit/VioletFigueroa/lightBnB?style=flat-square&color=6B46C1)
+![GitHub repo size](https://img.shields.io/github/repo-size/VioletFigueroa/lightBnB?style=flat-square&color=6B46C1)
+![License](https://img.shields.io/badge/license-Educational-6B46C1?style=flat-square)
+![Portfolio](https://img.shields.io/badge/portfolio-project-6B46C1?style=flat-square)
 
 **Quick Links:** [Security Features](#security-relevance-for-application-security) | [Setup](#getting-started) | [Database Schema](#database-architecture)
+
+</div>
 
 ---
 
@@ -23,6 +29,31 @@
 LightBnB is an Airbnb clone built with Node.js, Express, and PostgreSQL that allows users to browse properties, make reservations, and manage listings. This project demonstrates critical database security practices, particularly SQL injection prevention through parameterized queries and proper database access patterns.
 
 **Developed during:** Lighthouse Labs Web Development Bootcamp (April 2021)
+
+## 🎯 Portfolio Context
+
+**Career Timeline:** Early Learning → Web Development Foundations (2021)  
+**Skills Demonstrated:** SQL injection prevention, parameterized queries, database security architecture, secure data access patterns, PostgreSQL security  
+**Related Projects:**
+- See [TinyApp](https://github.com/VioletFigueroa/tinyapp) for authentication security
+- See [Interview Scheduler](https://github.com/VioletFigueroa/interview-scheduler) for API security patterns
+- Builds on testing practices from [Lotide](https://github.com/VioletFigueroa/lotide)
+
+**Why This Matters for Employers:**
+
+SQL injection remains one of the most critical web application vulnerabilities (OWASP A03:2021 - Injection). This project demonstrates I understand:
+- How SQL injection attacks actually work at the code level
+- Why parameterized queries prevent injection (not just "use them")
+- Database security patterns that developers need to follow
+- How to review code for injection vulnerabilities
+
+As a security analyst who has built database-backed applications, I can:
+- Identify vulnerable query patterns during code review
+- Explain remediation in developer-friendly terms
+- Understand performance vs. security trade-offs
+- Test for SQL injection effectively because I know how it's prevented
+
+Development experience makes me a more effective application security analyst.
 
 ## Security Relevance for Application Security
 
